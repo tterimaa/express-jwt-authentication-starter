@@ -1,7 +1,7 @@
 import express = require("express");
 import passport = require("passport");
 import configure from "./config/passport";
-import router from "./routes";
+import router from "./routes/index";
 import dotenv from "dotenv";
 dotenv.config();
 

@@ -4,7 +4,7 @@ import fs = require("fs");
 import path = require("path");
 import { UserDocument } from "../types";
 
-const pathToKey = path.join(__dirname, "..", "id_rsa_priv.pem");
+const pathToKey = path.join(__dirname, "../..", "id_rsa_priv.pem");
 const PRIV_KEY = fs.readFileSync(pathToKey, "utf8");
 
 /**
