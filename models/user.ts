@@ -1,5 +1,5 @@
 import * as mongoose from 'mongoose';
-import { IUser } from '../types';
+import { UserDocument } from '../types';
 
 const UserSchema = new mongoose.Schema({
     username: String,
@@ -7,5 +7,5 @@ const UserSchema = new mongoose.Schema({
     salt: String
 });
 
-const User = mongoose.model<IUser>('User', UserSchema);
+const User = mongoose.model<UserDocument>('User', UserSchema);
 export default User;

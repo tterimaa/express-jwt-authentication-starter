@@ -2,7 +2,7 @@ import crypto = require("crypto");
 import jsonwebtoken = require("jsonwebtoken");
 import fs = require("fs");
 import path = require("path");
-import { IUser } from "../types";
+import { UserDocument } from "../types";
 
 const pathToKey = path.join(__dirname, "..", "id_rsa_priv.pem");
 const PRIV_KEY = fs.readFileSync(pathToKey, "utf8");
@@ -25,7 +25,7 @@ function validPassword(
   hash: string,
   salt: crypto.BinaryLike
 ) {
-  var hashVerify = crypto
+  const hashVerify = crypto
     .pbkdf2Sync(password, salt, 10000, 64, "sha512")
     .toString("hex");
   return hash === hashVerify;
@@ -42,8 +42,8 @@ function validPassword(
  * You would then store the hashed password in the database and then re-hash it to verify later (similar to what we do here)
  */
 function genPassword(password: crypto.BinaryLike) {
-  var salt = crypto.randomBytes(32).toString("hex");
-  var genHash = crypto
+  const salt = crypto.randomBytes(32).toString("hex");
+  const genHash = crypto
     .pbkdf2Sync(password, salt, 10000, 64, "sha512")
     .toString("hex");
 
@@ -56,7 +56,7 @@ function genPassword(password: crypto.BinaryLike) {
 /**
  * @param {*} user - The user object.  We need this to set the JWT `sub` payload property to the MongoDB user ID
  */
-function issueJWT(user: IUser) {
+function issueJWT(user: UserDocument) {
   const _id = user._id;
 
   const expiresIn = "1d";

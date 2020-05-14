@@ -1,5 +1,7 @@
+import users from './users';
+
 const router = require("express").Router();
 
-router.use("/users", require("./users"));
+router.use("/users", users);
 
-module.exports = router;
+export default router;

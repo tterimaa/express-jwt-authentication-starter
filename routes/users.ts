@@ -25,7 +25,6 @@ router.post("/login", function (req, res, next) {
         return;
       }
 
-      // Function defined at bottom of app.js
       const isValid = validPassword(req.body.password, user.hash, user.salt);
 
       if (isValid) {
@@ -47,7 +46,6 @@ router.post("/login", function (req, res, next) {
     });
 });
 
-// Register a new user
 router.post("/register", function (req, res, _next) {
   const saltHash = genPassword(req.body.password);
 
@@ -69,4 +67,4 @@ router.post("/register", function (req, res, _next) {
   }
 });
 
-module.exports = router;
+export default router;

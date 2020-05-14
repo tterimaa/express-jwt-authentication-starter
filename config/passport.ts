@@ -1,9 +1,9 @@
 import { ExtractJwt, Strategy as JwtStrategy } from "passport-jwt";
 import fs = require("fs");
 import path = require("path");
-import { model } from "mongoose";
+import { PassportStatic } from "passport";
+import User from "../models/user";
 
-const User = model("User");
 const pathToKey = path.join(__dirname, "..", "id_rsa_pub.pem");
 const PUB_KEY = fs.readFileSync(pathToKey, "utf8");
 
@@ -15,16 +15,12 @@ const options = {
 };
 
 // app.js will pass the global passport object here, and this function will configure it
-module.exports = (passport: any) => {
+export default (passport: PassportStatic) => {
   // The JWT payload is passed into the verify callback
   passport.use(
-    new JwtStrategy(options, function (jwt_payload, done) {
-      console.log(jwt_payload);
-
+    new JwtStrategy(options, function (jwtPayload, done) {
       // We will assign the `sub` property on the JWT to the database ID of user
-      User.findOne({ _id: jwt_payload.sub }, function (err, user) {
-        // This flow look familiar?  It is the same as when we implemented
-        // the `passport-local` strategy
+      User.findOne({ _id: jwtPayload.sub }, function (err, user) {
         if (err) {
           return done(err, false);
         }
