@@ -1,11 +1,13 @@
 {
     "compilerOptions": {
-        "target": "ES5",
+        "target": "ES6",
+        "outDir": "./build/",
+        "module": "commonjs",
         "strict": true,
         "noUnusedLocals": true,
-        "noUnusedParameters": true,
+        "noUnusedParameters": true,       
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
         "esModuleInterop": true
-    }
+      }
 }
