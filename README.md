@@ -45,7 +45,9 @@ You can test the authentication with HTTP client of your preference, I use [Post
 }
 ```
 as the request body.
+
 2. POST /users/login with the same object in the body as in the registration. You should get a response that contains field "token". Copy the token string starting with "Bearer..". Copy the token without the quotation marks.
+
 3. GET /users/protected with your token attached to the Authorization header. You should get a response message "You are succesfully authenticated for this route!"
 
 If you got successfully to phase 3, the app starter is working correctly and you can start building your app!
