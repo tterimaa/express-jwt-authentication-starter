@@ -4,12 +4,10 @@ import configure from "./config/passport";
 import router from "./routes/index";
 import dotenv from "dotenv";
 dotenv.config();
+import "./config/database";
 
 // Create the Express application
 const app = express();
-
-// Configures the database and opens a global connection that can be used in any module with `mongoose.connection`
-require("./config/database");
 
 // Pass the global passport object into the configuration function
 configure(passport);

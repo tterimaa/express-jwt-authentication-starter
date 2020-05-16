@@ -54,7 +54,7 @@ function genPassword(password: crypto.BinaryLike) {
 }
 
 /**
- * @param {*} user - The user object.  We need this to set the JWT `sub` payload property to the MongoDB user ID
+ * @param {*} user - The user document object.  We need this to set the JWT `sub` payload property to the MongoDB user ID
  */
 function issueJWT(user: UserDocument) {
   const _id = user._id;
