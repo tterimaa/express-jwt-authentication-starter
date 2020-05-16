@@ -1,7 +1,7 @@
-import crypto = require("crypto");
-import jsonwebtoken = require("jsonwebtoken");
-import fs = require("fs");
-import path = require("path");
+import crypto from "crypto";
+import jsonwebtoken from "jsonwebtoken";
+import fs from "fs";
+import path from "path";
 import { UserDocument } from "../types";
 
 const pathToKey = path.join(__dirname, "../..", "id_rsa_priv.pem");
