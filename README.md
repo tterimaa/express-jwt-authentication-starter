@@ -8,7 +8,7 @@ Project structure inspired by [Bulletproof node.js project architecture](https:/
 
 ## How to use this Repo
 
-This starter is especially suitable for express.js backend that is connected to SPA frontend (React, Angular or similar). More information about the usage of passport.js can be found from the official documents: [passport.js](http://www.passportjs.org/packages/passport-jwt/).
+This starter is especially suitable for express.js backend that is connected to SPA frontend (React, Angular or similar). More information about the usage of passport.js can be found from the [official documents](http://www.passportjs.org/packages/passport-jwt/).
 
 You will need to start the Mongo DB database using the `mongod` process.  You can run this process persistently in the background, but you could also just type `mongod` in your terminal.
 
@@ -52,7 +52,7 @@ as the request body.
 
 3. GET /users/protected with your token attached to the Authorization header. You should get a response message "You are succesfully authenticated for this route!"
 
-4. Get /users/protected-admin should give you a response "Unauthorized (role)". To access this route you need to create an admin account by adding "role": ["admin"] in phase 1.
+4. Get /users/protected-admin should give you a response "Unauthorized (role)". To access this route you need to create an admin account by adding `"role": ["admin"]` in phase 1.
 
 If you got successfully to phase 3, the app starter is working correctly and you can start building your app!
 
