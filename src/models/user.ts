@@ -1,11 +1,17 @@
 import { Schema, model } from "mongoose";
-import { UserDocument } from "../types";
+import { IUserModel } from "../interfaces/IUser";
 
 const UserSchema = new Schema({
-  username: String,
-  hash: String,
-  salt: String,
+  username: {
+    type: String,
+    required: true,
+  },
+  roles: [String],
+  hash: {
+    type: String,
+    required: true,
+  }
 });
 
-const User = model<UserDocument>("User", UserSchema);
+const User = model<IUserModel>("User", UserSchema);
 export default User;

@@ -1,26 +1,17 @@
 import express from "express";
-import passport from "passport";
-import configure from "./config/passport";
-import router from "./routes/index";
-import dotenv from "dotenv";
-dotenv.config();
-import "./config/database";
+import config from "./config/index";
 
-// Create the Express application
-const app = express();
+async function startServer() {
+  const app = express();
 
-// Pass the global passport object into the configuration function
-configure(passport);
+  await require("./loaders").default({ expressApp: app });
 
-// This will initialize the passport object on every request
-app.use(passport.initialize());
+  app.listen(config.port, (err) => {
+    if (err) {
+      process.exit(1);
+    }
+    console.log(`Server listening on port ${config.port}`);
+  });
+}
 
-// Instead of using body-parser middleware, use the new Express implementation of the same thing
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Imports all of the routes from ./routes/index.j
-app.use(router);
-
-// Server listens on http://localhost:3000
-app.listen(3000);
+startServer();
