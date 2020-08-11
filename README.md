@@ -54,6 +54,4 @@ as the request body.
 
 4. Get /users/protected-admin should give you a response "Unauthorized (role)". To access this route you need to create an admin account by adding `"role": ["admin"]` in phase 1.
 
-If you got successfully to phase 3, the app starter is working correctly and you can start building your app!
-
-
+If you completed the previous steps successfully, the app is working correctly and you can start building your own on top of that!
